@@ -22,10 +22,6 @@ export default {
       height: 46
     }
   },
-  commits: {
-    flex: 9,
-    marginHorizontal: 3
-  },
   container: {
     alignItems: 'center',
     backgroundColor: '#fff',

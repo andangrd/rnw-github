@@ -10,6 +10,7 @@ import { compose } from 'redux';
 
 import styles from '../Shared.style';
 import withBackHandler from '../../HOCs/withBackHandler';
+import withHeader from '../../HOCs/withHeader';
 import withLoader from '../../HOCs/withLoader';
 import api from '../../Utils/api';
 import { withRouter } from '../../Utils/Routing';
@@ -25,17 +26,12 @@ class CommitDetail extends PureComponent {
 
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.content}>
-          <Text style={styles.title}>Commit Detail</Text>
-          <View style={styles.commits}>
-            <FlatList
-              data={this.props.data.files}
-              keyExtractor={this.keyExtractor}
-              renderItem={this.renderItem}
-            />
-          </View>
-        </View>
+      <View style={styles.content}>
+        <FlatList
+          data={this.props.data.files}
+          keyExtractor={this.keyExtractor}
+          renderItem={this.renderItem}
+        />
       </View>
     );
   }
@@ -48,5 +44,6 @@ export default compose(
   withRouter,
   fetch(({ github, match }) => `${api(github).URI}/${match.params.sha}`),
   withLoader,
-  withBackHandler
+  withBackHandler,
+  withHeader({ title:'Commit Detail' })
 )(CommitDetail);
