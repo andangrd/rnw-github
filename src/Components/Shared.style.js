@@ -29,9 +29,10 @@ export default {
   container: {
     alignItems: 'center',
     backgroundColor: '#fff',
+    display: 'flex',
     flex: 1,
-    justifyContent: 'center',
-    margin: 3
+    height: '100%',
+    justifyContent: 'center'
   },
   content: {
     flex: 1
