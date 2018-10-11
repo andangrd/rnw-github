@@ -126,5 +126,5 @@ export default compose(
   withFetch(({ github }) => api(github).URI),
   withLoader,
   withBackHandler,
-  withHeader({ title:'Commits' })
+  withHeader({ title: 'Commits', renderRight: false })
 )(Commits);

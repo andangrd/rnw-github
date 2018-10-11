@@ -15,11 +15,13 @@ import withLoader from '../../HOCs/withLoader';
 import api from '../../Utils/api';
 import { withRouter } from '../../Utils/Routing';
 
+const wrapperStyle = { paddingHorizontal: 3 };
+
 class CommitDetail extends PureComponent {
   keyExtractor = ( item ) => item.filename;
 
   renderItem = ({ item }) => (
-    <View>
+    <View style={wrapperStyle}>
       <Text>{item.filename}</Text>
     </View>
   );

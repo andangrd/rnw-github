@@ -15,13 +15,17 @@ const buttonStyle = {
 const centerContainerStyle = { paddingRight: 20 };
 
 const containerStyle = {
+  alignItems: 'center',
   height: 50,
+  justifyContent: 'center',
+  paddingHorizontal: 0,
+  paddingTop: 0,
   width: '100%'
 };
 
 const textStyle = { color: '#fff' };
 
-const withHeader = (props) => (WrappedComponent) => {
+const withHeader = ({ title = '', renderRight = true }) => (WrappedComponent) => {
   class HOC extends PureComponent {
     goBack = () => this.props.history.goBack();
 
@@ -39,12 +43,6 @@ const withHeader = (props) => (WrappedComponent) => {
     });
 
     render() {
-      // This should be removed later!
-      console.log({ props });
-      console.log(this.props);
-
-      const { title } = props;
-
       return (
         <View style={styles.container}>
           <Header
@@ -52,7 +50,7 @@ const withHeader = (props) => (WrappedComponent) => {
             centerContainerStyle={centerContainerStyle}
             leftComponent={this.horizontalComponent('chevron-left', 20, this.goBack)}
             centerComponent={this.centerComponent(title)}
-            rightComponent={this.horizontalComponent('home', 25, this.goHome)}
+            rightComponent={renderRight && this.horizontalComponent('home', 25, this.goHome)}
           />
           <WrappedComponent {...this.props} />
       </View>
