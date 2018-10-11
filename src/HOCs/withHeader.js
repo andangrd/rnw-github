@@ -4,14 +4,6 @@ import { Header } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../Components/Shared.style';
 
-const centerComponentStyle = { color: '#fff' };
-
-const outerContainerStyle = {
-  height: 50,
-  paddingHorizontal: 0,
-  width: '100%'
-};
-
 const buttonStyle = {
   alignItems: 'center',
   height: 48,
@@ -19,6 +11,15 @@ const buttonStyle = {
   paddingRight: 5,
   width: 40
 };
+
+const centerContainerStyle = { paddingRight: 20 };
+
+const containerStyle = {
+  height: 50,
+  width: '100%'
+};
+
+const textStyle = { color: '#fff' };
 
 const withHeader = (props) => (WrappedComponent) => {
   class HOC extends PureComponent {
@@ -34,10 +35,11 @@ const withHeader = (props) => (WrappedComponent) => {
   
     centerComponent = (title) => ({
       text: title.toUpperCase(),
-      style: centerComponentStyle
+      style: textStyle
     });
 
     render() {
+      // This should be removed later!
       console.log({ props });
       console.log(this.props);
 
@@ -46,7 +48,8 @@ const withHeader = (props) => (WrappedComponent) => {
       return (
         <View style={styles.container}>
           <Header
-            outerContainerStyles={outerContainerStyle}
+            containerStyle={containerStyle}
+            centerContainerStyle={centerContainerStyle}
             leftComponent={this.horizontalComponent('chevron-left', 20, this.goBack)}
             centerComponent={this.centerComponent(title)}
             rightComponent={this.horizontalComponent('home', 25, this.goHome)}
