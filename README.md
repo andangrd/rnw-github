@@ -1,7 +1,7 @@
 # rnw-github [![Build status](https://build.appcenter.ms/v0.1/apps/5e9d98d7-a605-49c7-b921-94ebda4a0d4e/branches/master/badge)](https://appcenter.ms) [![CircleCI](https://circleci.com/gh/haruelrovix/rnw-github/tree/master.svg?style=svg)](https://circleci.com/gh/haruelrovix/rnw-github/tree/master)
 A React Native Web app that fetches GitHub API.
 
-- Run on Android and Web 🎉
+- Run on Android, IOS and Web 🎉
 - Infinite Scroll
 
 ## Deployment
