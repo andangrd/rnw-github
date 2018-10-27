@@ -14,9 +14,10 @@ The `apk` for Android can be downloaded [here](https://appcenter.ms/download?url
 
 Continuous Deployment by [Visual Studio App Center](https://appcenter.ms) for Native and [CircleCI](https://circleci.com/dashboard) for Web. 🔥
 
-||Android|Web|
-|-|-|-|
-|Home|<img src="https://user-images.githubusercontent.com/17120764/46534747-7ddb9f80-c8d3-11e8-9263-ecce29998131.png" width=400 />|<img src="https://user-images.githubusercontent.com/17120764/46603380-13b63b00-cb1d-11e8-915b-80ce9478f00c.png" width=400 />|
+||Android|Web|Ios|
+|-|-|-|-|
+|Home|<img src="https://user-images.githubusercontent.com/17120764/46534747-7ddb9f80-c8d3-11e8-9263-ecce29998131.png" width=400 />|<img src="https://user-images.githubusercontent.com/17120764/46603380-13b63b00-cb1d-11e8-915b-80ce9478f00c.png" width=400 />|<img width="383" alt="screen shot 2018-10-27 at 11 55 16 pm" src="https://user-images.githubusercontent.com/26213148/47606918-f9002380-da43-11e8-8cbe-e707fe06ad9e.png">
+
 
 ## Development
 
@@ -66,10 +67,35 @@ Continuous Deployment by [Visual Studio App Center](https://appcenter.ms) for Na
  <img src="https://user-images.githubusercontent.com/17120764/46603258-c639ce00-cb1c-11e8-9e43-b10c1a9b120b.png" width=300 />
 
 ### iOS
- 
-In theory, it should be can be run on iOS simulator using `yarn ios` command. Have no Mac machine to test it. 😅
- 
- 
+
+You have to run `yarn` or `npm install` first to download the dependencies.
+Then simply run `yarn ios`.
+
+If you got an error related to `AppCenter`, you should follow the steps below,
+These are some steps to install AppCenter on Mac OS:
+
+1. make sure you have installed cocoapods, if you haven't, then run this command on your terminal
+
+``` $ sudo gem install cocoapods --source http://rubygems.org ```
+2. install app center by executing this command :
+
+``` $ yarn add appcenter appcenter-analytics appcenter-crashes --exact ```
+3. Link the plugins to the React Native app by using the react-native link command.
+```
+react-native link appcenter
+react-native link appcenter-analytics
+react-native link appcenter-crashes
+```
+4. Run Application again 'yarn ios'
+
+
+In case you need some information about Cocoapods and AppCenter, the following link might be helpful for you:
+
+1. [Cocoapods](https://guides.cocoapods.org/using/getting-started.html)
+2. [AppCenter](https://docs.microsoft.com/en-us/appcenter/)
+3. [AppCenter for React Native](https://docs.microsoft.com/en-us/appcenter/sdk/getting-started/react-native)
+
+
 ## Acknowledgements
 
 RNW GitHub created using [react-native-web](https://github.com/necolas/react-native-web) and [react-native-elements](https://github.com/react-native-training/react-native-elements). 💖 Bootstrapped with [CRNWA](https://github.com/VISI-ONE/create-react-native-web-app).
